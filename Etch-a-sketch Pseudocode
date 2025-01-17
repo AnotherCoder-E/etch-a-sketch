@@ -1,0 +1,19 @@
+Etch-a-sketch Pseudocode
+
+FIRST STEP - Create a 16x16 grid of square divs.
+    
+    Step 1. Start with a one square div. Adjust its size, border and properties,
+then create more divs with Flexbox and Javascript.
+
+	One way of creating 16 squares is to create a loop
+that iterates 16 times and creates a square at each itera-
+tion.
+
+	Is there method in DOM for repetitive actions?
+	
+STEP FOUR - I need to create a feature that will create any grid
+up to 100x100 grid.
+
+	New grids should fit in the container for the 16x16 grid, so the
+squares should have ability of shrinking or growing at demand.
+Make a Git commit for actual version and work on a new feature.
