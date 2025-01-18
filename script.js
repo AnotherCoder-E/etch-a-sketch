@@ -6,6 +6,8 @@ const gridSize = document.createElement('button');
 gridSize.textContent = 'Change Grid size';
 gridSize.className = 'gridSize';
 
+createGrid(16);
+
 gridSize.addEventListener('click', () => {
     
     while (true) {
@@ -13,11 +15,13 @@ gridSize.addEventListener('click', () => {
     console.log('User Input is: ' + userInput + '\n It\'s type is: ' + typeof userInput);
     if ( isNaN(userInput) || userInput === '') {
         alert('Wrong input. Provide correct one or press Cancel.');
+    } else if ( userInput > 100 ) {
+        alert('Provide a number that is equal to or less than 100.')
     } else if ( userInput === null ) {
         alert('Canceled');
         return false;
     } else {
-        grid.innerHTML = ''; // make that cleaning grid function
+        cleanGrid();
         createGrid(parseInt(userInput));
         return false;
     }
@@ -30,7 +34,7 @@ body.insertBefore(gridSize, grid);
 
 function createGrid(numOfSquares) {
     // TEST
-    alert('createGrid function says \nUser Input is: ' + numOfSquares + '\n It\'s type is: ' + typeof numOfSquares);
+    // alert('createGrid function says \nUser Input is: ' + numOfSquares + '\n It\'s type is: ' + typeof numOfSquares);
     // END TEST
 
     const squaresAmount = numOfSquares**2; // power it
@@ -52,8 +56,17 @@ function createGrid(numOfSquares) {
     squaresNodes.forEach( (square) => {
         square.addEventListener('mouseover', () => {
             console.log(square);
-            square.style.backgroundColor = 'green';
+            console.log(randomRGB);
+            square.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
         });
     });
 
+}
+
+function cleanGrid() {
+    grid.innerHTML = '';
+}
+
+function randomRGB() {
+    return Math.floor(Math.random() * 256);
 }
