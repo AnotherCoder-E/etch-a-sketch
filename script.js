@@ -12,7 +12,6 @@ gridSize.addEventListener('click', () => {
     
     while (true) {
     const userInput = prompt('Set number of squares per line (up to 100): ');
-    console.log('User Input is: ' + userInput + '\n It\'s type is: ' + typeof userInput);
     if ( isNaN(userInput) || userInput === '') {
         alert('Wrong input. Provide correct one or press Cancel.');
     } else if ( userInput > 100 ) {
@@ -33,9 +32,6 @@ body.insertBefore(gridSize, grid);
 
 
 function createGrid(numOfSquares) {
-    // TEST
-    // alert('createGrid function says \nUser Input is: ' + numOfSquares + '\n It\'s type is: ' + typeof numOfSquares);
-    // END TEST
 
     const squaresAmount = numOfSquares**2; // power it
     const squareSize = String( 800 / numOfSquares ) + 'px';
@@ -51,13 +47,15 @@ function createGrid(numOfSquares) {
     }
 
     const squaresNodes = document.querySelectorAll('.squares');
-    console.log(squaresNodes);
 
     squaresNodes.forEach( (square) => {
         square.addEventListener('mouseover', () => {
-            console.log(square);
-            console.log(randomRGB);
-            square.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
+            if ( square.style.backgroundColor === '') {
+                square.style.opacity = '0.1';
+                square.style.backgroundColor = `rgb(${randomRGB()},${randomRGB()},${randomRGB()})`;
+            } else {
+                square.style.opacity = String(Number(square.style.opacity) + 0.1);
+            }
         });
     });
 

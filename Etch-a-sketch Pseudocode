@@ -88,11 +88,24 @@ squaresNodes.forEach( (square) => {
     });
 });
 
+AUTODARKENING FEATURE
+
+My goal is to make a square becoming more opaque on each
+hover.
+With RGB colors, it should start with 10% opacity of a
+color, for example red, and with each hover it should
+become more opaque, until the square is 100% opaque.
 	
+I will start with adding the darkening feature, and later
+I will set a one color to a square once it is hovered.
+I want a square to retain the color and not change it
+when it is hovered again.	
 	
-	
-	
-	
+I need to save the color that is generated for a square and darken it when mouse hovers again a square.
+
+I can use if statement to check whether a square has a
+background color other than white in order to determine
+whtether to generate new color or not.
 	
 	
 	

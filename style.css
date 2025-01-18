@@ -10,17 +10,17 @@ body {
 }
 
 #grid {
-    border: 2px solid white;
+    border: 2px solid red;
     display: flex;
     flex-wrap: wrap;
     width: 800px;
     height: 800px;
     margin: 0 auto;
+    background-color: white;
 }
 
 .squares {
     border: 1px solid black; /* make border turnable */
-    background-color: white;
     box-sizing: border-box;
     flex: 0 0 auto;
 }
