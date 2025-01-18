@@ -19,11 +19,15 @@ body {
 }
 
 .squares {
-    width: 50px;
-    height: 50px;
+    /* width: 50px; */
+    /* height: 50px; */
     border: 1px solid black; /* make border turnable */
     /* margin: 10px; */
     background-color: white;
     box-sizing: border-box;
     flex: 0 0 auto;
+}
+
+.gridSize {
+    font-size: 32px;
 }
