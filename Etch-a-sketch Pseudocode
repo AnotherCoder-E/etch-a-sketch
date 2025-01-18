@@ -17,3 +17,105 @@ up to 100x100 grid.
 	New grids should fit in the container for the 16x16 grid, so the
 squares should have ability of shrinking or growing at demand.
 Make a Git commit for actual version and work on a new feature.
+
+What I do not understand?
+
+How to make squares fit into the given space ( 800px x 800px ) despite the grid size ( 16x16, 64x64, 100x100 ).
+
+I tried to use flex: 1 1 auto; and flex: 1 1 0; in order to make them flexible, but this doesn't seem to work.
+If squares don't have defined width, like 50px x 50px, they have weird shapes and they don't stretch in to fit
+the flexbox.
+
+REad about aspect / ratio
+Think how to define square width and heigh basing on the grid size.
+For 64x64 and 800px x 800px wide container, we should have 64 squares on each side.
+
+800 px / 64 squares gives us 12,5px for each square.
+I need to take this result and use it as a square size.
+Then all the 4096 squares ( 64*64 = 4096 ) will fit in the container.
+
+PSEUDOCODE - plan:
+
+	1. get grid size from user ( up to 100x100 grid )
+	2. divide container size ( 800px ) per squares on
+	each side ( in 100x100 grid we have 100 squares on
+	each side, so we divide 800 / 100 an get size of a
+	one square - 8px )
+	3. create all the squares - 1 ( first square is both
+	first in horizontal and vertical rows ), so 100*100
+	gives us 1 0000 squares.
+	
+PSEUDOCODE - code:
+
+JAVASCRIPT PSEUDOCODE:
+
+	input = provide grid ( ex. 100x100 )
+	const squaresAmount = 100*100 = 10000 squares in total
+	// 	compute squares amount
+	
+	const squareSize = 800 / 100 = 8px
+	// compute square size
+	
+	for ( let i = 1; i < ( squaresAmount - 1 ); i++ ) {
+		grid.appendChild(square.cloneNode() );
+	}
+	// generate squares
+
+CSS PSEUDOCODE: @@@ WRONG - IT HAS TO BE DONE IN JAVASCRIPT
+CAUSE I DON'T HAVE ACCESS IN CSS TO JAVASCRIPT @@@
+	
+	.squares {
+    width: squareSize; !!1
+    height: squareSize; !!!
+    
+    border: 1px solid black; /* make border turnable */
+    /* margin: 10px; */
+    background-color: white;
+    box-sizing: border-box;
+    flex: 0 0 auto;
+	}
+	
+JAVASCRIPT PSEUDOCODE:
+	
+squaresNodes.forEach( (square) => {
+
+	square.style.width = squareSize; !!!
+	square.style.height = squareSize; !!!
+
+    square.addEventListener('mouseover', () => {
+        console.log(square);
+        square.style.backgroundColor = 'green';
+    });
+});
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
